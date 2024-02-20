@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AdminLoginController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+    Route::group(['middleware'=>['auth','is_admin']],function(){
+        Route::get('/dashboard',function(){
+            return view('admin.dashboard');
+        });
+    });
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+
+
+
+// Route::group(['prefix' => 'admin'],function(){
+
+
+//     Route::get('/login',[AdminLoginController::class,'index'])->name('admin.login');
+//     Route::get('/dashboard',[AdminLoginController::class,'dashboard'])->name('admin.dashboard');
+
+// });
