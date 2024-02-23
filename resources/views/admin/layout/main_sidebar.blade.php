@@ -14,7 +14,7 @@
                 <li class="nav-item">
                     <a href="dashboard.html" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Dashboard</p>
+                        <p>{{ trans('admin_sidebar_trans.Dashboard') }}</p>
                     </a>																
                 </li>
                 <li class="nav-item">

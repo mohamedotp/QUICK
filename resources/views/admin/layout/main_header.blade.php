@@ -6,6 +6,7 @@
               <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>					
     </ul>
+    
     <div class="navbar-nav pl-2">
         <!-- <ol class="breadcrumb p-0 m-0 bg-white">
             <li class="breadcrumb-item active">Dashboard</li>
@@ -13,6 +14,16 @@
     </div>
     
     <ul class="navbar-nav ml-auto">
+        <ul>
+            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                <li>
+                    <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="fas fa-expand-arrows-alt"></i>
@@ -40,4 +51,5 @@
             </div>
         </li>
     </ul>
+    
 </nav>
