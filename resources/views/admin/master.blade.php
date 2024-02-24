@@ -1,5 +1,5 @@
 @include('admin.layout.head')
-	<body class="hold-transition sidebar-mini">
+	<body class="{{ app()->getLocale() == 'ar' ?  'sidebar-collapse' : ''}}">
 		<!-- Site wrapper -->
 		<div class="wrapper">
 			<!-- Navbar -->
@@ -8,6 +8,7 @@
 			<!-- Main Sidebar Container -->
 			@include('admin.layout.main_sidebar')
 			<!-- Content Wrapper. Contains page content -->
+			
 			@yield('content')
 			<!-- /.content-wrapper -->
 			@include('admin.layout.footer')

@@ -32,9 +32,11 @@ Route::group(
             return view('admin.dashboard');
         });
     });
+    
     Route::get('/', function () {
         return view('welcome');
     });
+    
 });
     
 
